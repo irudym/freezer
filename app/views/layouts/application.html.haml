@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}/
+    %title Freezer Breezer
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      %div.container-fluid
+        %button{type: "button", class: "navbar-toggle collapsed", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"}}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a{class: "navbar-brand", href: "#"}
+          Freezer
+        %div{id: "navbar", class: "navbar-collapse collapse"}
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "#"} Dashboard
+            %li
+              %a{href: "#"} Settings
+            %li
+              %a{href: "#"} About
+    %div.container-fluid
+      %div.row
+        %div.col-sm-3.col-md-2.sidebar
+          %ul.nav.nav-sidebar
+            %li.active
+              %a{href: "#"}
+                Overview
+                %span.sr-only (current)
+            %li
+              %a{href: "#"}
+                Export
+        %div.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          %div.row
+            %div.col-md-12
+              = yield
