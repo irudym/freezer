@@ -4,11 +4,13 @@
     %div.panel.panel-default
       %div.panel-heading Temperature
       %div.panel-body
-        %canvas#canvas{:height => "450", :width => "600"}
-%div.row
-  %div.col-md-12
-    %div.panel.panel-default
-      %div.panel-heading Data
-      %div.panel-body
-        #{@data.as_json}
+        %div.row
+          %div.col-md-12
+            %p
+              Select date:
+              %input{type: "text", id: "datepicker"}
+        %div.row
+          %div.col-md-12
+            %canvas#canvas{:height => "150", :width => "600"}
+
 
