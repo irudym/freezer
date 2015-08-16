@@ -12,7 +12,7 @@ class TemperatureController < ApplicationController
 
     #get every hour measurement
     #get the first record timestamp
-    data = data || []
+    data = [0] unless data
     start = data.to_a[0][:created_at]
     start_hour = start.hour
     start_hour += 1 if start.min > 40
