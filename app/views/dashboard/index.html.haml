@@ -1,6 +1,11 @@
 %h1.page-header Dashboard
 %div.row
-  %div.col-md-12
+  %div.col-md-4.col-sm-4
+    %div.panel.panel-default
+      %div.panel-heading Current temperature
+      %div.panel-body
+        %h1.big_number 0
+  %div.col-md-8.col-sm-8
     %div.panel.panel-default
       %div.panel-heading Temperature
       %div.panel-body
@@ -12,5 +17,3 @@
         %div.row
           %div.col-md-12
             %canvas#canvas{:height => "150", :width => "600"}
-
-

@@ -31,6 +31,17 @@ function updateGraph(year, month, day) {
     });
 }
 
+
+function updateTemperature() {
+    $.ajax({
+        url: "/temperature/get_current",
+        success: function(data, textStatus, jqXHR) {
+            console.log("Temp: " + data);
+            $('.big_number').html(data/10+ " <sup>0</sup>C");
+        }
+    });
+}
+
 $(document).ready(function() {
 
     //set datepicker
@@ -55,4 +66,7 @@ $(document).ready(function() {
         $('#canvas').height('250');
     });
     updateGraph();
+
+    updateTemperature();
+    setInterval(updateTemperature, 10000);
 });

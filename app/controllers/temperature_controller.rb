@@ -12,7 +12,11 @@ class TemperatureController < ApplicationController
 
     #get every hour measurement
     #get the first record timestamp
-    data = [0] unless data
+    unless data.to_a[0]
+      render json: 0
+      return
+    end
+
     start = data.to_a[0][:created_at]
     start_hour = start.hour
     start_hour += 1 if start.min > 40
@@ -28,15 +32,20 @@ class TemperatureController < ApplicationController
         end
         hour = value[:created_at].hour + 1
         #puts "=>\tadd: #{value[:value]} | #{value[:created_at]}"
-        res = value[:value]/10
+        res = value[:value].to_f/10
         if white
-          res = white << res
+          res = white << res 
         end
         res
       end
     end.compact
 
     render json: temp_data.flatten
+  end
+
+  def get_current
+    data = Temperature.last
+    render json: data[:value]
   end
 
   private

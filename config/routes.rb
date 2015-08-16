@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'temperature/get_data'
+  get 'temperature/get_current'
 
   #get 'dashboard/index'
 
